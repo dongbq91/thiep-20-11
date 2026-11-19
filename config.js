@@ -1,26 +1,29 @@
 /* =========================================================
-   TÙY CHỈNH NỘI DUNG THIỆP 20/11 Ở ĐÂY
+   THIỆP 20/11 – BẢN "BẢNG ĐEN & TRANG VỞ"
    - {to}   tên đầy đủ người nhận
    - {nick} tên gọi trong lời chúc
    - {from} tên người gửi
-   - Xuống dòng trong message: chỉ cần Enter (dùng dấu ` ` bao quanh)
+   - Mỗi đoạn trong message cách nhau 1 dòng trống
    ========================================================= */
 window.CARD_CONFIG = {
   receiver: "Hoàng Hải Anh",
   nickname: "Hải Anh",
   sender: "HiDongne",
 
-  // Ảnh đại diện trong thiệp (để "" nếu không muốn hiện ảnh)
+  // Ảnh polaroid trong thư (để "" nếu không muốn hiện ảnh)
   avatar: "assets/avatar.jpg",
+  photoCaption: "Cô {nick} 💐",
 
-  // Mặt ngoài thiệp
-  coverTop: "Happy Teacher's Day",
-  coverBig: "20.11",
-  coverSub: "Kính tặng cô giáo {to} 💐",
-  openButton: "Mở thiệp 💌",
+  // Màn mở đầu
+  skyText: "20.11",                       // chữ do các hạt bụi phấn ghép thành
+  skySub: "Ngày Nhà giáo Việt Nam",
+  hint: "Chạm vào con dấu để mở thư",
+  envelopeNote: "Gửi cô {nick}",          // chữ nhỏ trên lá thư trong phong bì
 
-  // Nội dung bên trong (hiện từng chữ)
-  title: "Gửi cô giáo\n{nick} 💐",
+  // Lá thư
+  date: "Thứ Sáu, ngày 20 tháng 11 năm 2026", // dòng đầu trang vở
+  greeting: "Kính gửi cô giáo",
+  name: "{to}",
   message: `Nhân ngày Nhà giáo Việt Nam 20/11, xin gửi đến cô những lời chúc tốt đẹp và chân thành nhất.
 
 Cảm ơn cô vì đã chọn một nghề thật đẹp — nghề gieo chữ, gieo ước mơ và thắp sáng những tâm hồn non trẻ. Mỗi bài giảng của cô không chỉ là kiến thức, mà còn là sự kiên nhẫn, là tình thương và cả những buổi tối miệt mài bên trang giáo án.
@@ -29,13 +32,11 @@ Chúc cô luôn dồi dào sức khỏe, giữ mãi ngọn lửa nhiệt huyết
 
 Chúc cô luôn xinh đẹp, hạnh phúc, bình an, và giữ mãi nụ cười rạng rỡ ấy trên mọi chặng đường — cả trên bục giảng lẫn những cung đường chạy bộ mỗi sáng.
 
-Chúc mừng ngày Nhà giáo Việt Nam! 💐`,
-  signature: "— {from} —",
+Chúc mừng ngày Nhà giáo Việt Nam!`,
+  closing: "Thân gửi,",
+  signature: "{from}",
+  finale: "Happy Teacher's Day!",
 
-  // Hiệu ứng
-  typingSpeed: 40,   // ms cho mỗi ký tự (nhỏ hơn = nhanh hơn)
-  petalCount: 14,    // số cánh hoa bay trên màn hình
-
-  // Nhạc nền (tùy chọn): đặt file vào thư mục assets rồi ghi "assets/ten-file.mp3"
-  music: ""
+  // Tốc độ hiện chữ (ms cho mỗi từ, nhỏ hơn = nhanh hơn)
+  wordSpeed: 110
 };
