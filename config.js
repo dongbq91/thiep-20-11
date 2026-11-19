@@ -30,7 +30,7 @@ Cảm ơn cô vì đã chọn một nghề thật đẹp — nghề gieo chữ, 
 
 Chúc cô luôn dồi dào sức khỏe, giữ mãi ngọn lửa nhiệt huyết với nghề. Mong mỗi ngày đến lớp đều là một ngày vui, học trò ngoan ngoãn, chăm chỉ và luôn biết ơn những điều cô đã dành cho các em.
 
-Chúc cô luôn xinh đẹp, hạnh phúc, bình an, và giữ mãi nụ cười rạng rỡ ấy trên mọi chặng đường — cả trên bục giảng lẫn những cung đường chạy bộ mỗi sáng.
+Chúc cô luôn xinh đẹp, hạnh phúc, bình an, và giữ mãi nụ cười rạng rỡ ấy trên mọi chặng đường — cả trên bục giảng lẫn những cung đường chạy bộ mỗi ngày.
 
 Chúc mừng ngày Nhà giáo Việt Nam!`,
   closing: "Thân gửi,",
