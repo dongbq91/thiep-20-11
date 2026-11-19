@@ -56,7 +56,7 @@
   });
 
   /* =========================================================
-     BẦU TRỜI: sao lấp lánh + hạt sáng ghép chữ
+     BẢNG ĐEN: bụi phấn bay + hạt phấn ghép chữ
      ========================================================= */
   const sky = $("sky");
   const sc = sky.getContext("2d");
@@ -77,7 +77,8 @@
   }
   resize();
 
-  const GOLD = ["#ffd98a", "#f6bd60", "#ffe8c2", "#fff3d6", "#ffb3c1"];
+  // màu phấn: trắng là chính, xen phấn hồng / vàng / xanh
+  const GOLD = ["#ffffff", "#f7f5ee", "#ffffff", "#ffd6e0", "#fff3b0", "#cde7ff"];
   const stars = Array.from({ length: 80 }, () => ({
     x: Math.random(), y: Math.random(), r: rand(0.4, 1.5),
     tw: rand(0.6, 2), ph: rand(0, 6.28), vy: rand(0.00002, 0.0001)
@@ -86,7 +87,6 @@
   let dots = [];       // hạt sáng ghép thành chữ
   let mode = "form";   // form -> burst -> dust
   let textBox = null;
-  let shooting = null;
 
   function sampleText() {
     const off = document.createElement("canvas");
@@ -94,8 +94,8 @@
     off.height = H;
     const o = off.getContext("2d");
     const text = fill(cfg.skyText);
-    let size = Math.min(W * 0.3, H * 0.16, 190);
-    const font = (s) => `700 ${s}px "Playfair Display", Georgia, serif`;
+    let size = Math.min(W * 0.36, H * 0.19, 210);
+    const font = (s) => `${s}px "Patrick Hand", "Comic Sans MS", cursive`;
     o.font = font(size);
     const tw = o.measureText(text).width;
     if (tw > W * 0.86) {
@@ -158,8 +158,8 @@
     for (const s of stars) {
       s.y -= s.vy;
       if (s.y < 0) s.y = 1;
-      sc.globalAlpha = 0.2 + 0.6 * Math.abs(Math.sin(t * s.tw + s.ph));
-      sc.fillStyle = "#fff6e0";
+      sc.globalAlpha = 0.08 + 0.25 * Math.abs(Math.sin(t * s.tw + s.ph));
+      sc.fillStyle = "#ffffff";
       sc.beginPath();
       sc.arc(s.x * W, s.y * H, s.r, 0, 6.283);
       sc.fill();
@@ -193,25 +193,6 @@
       sc.fill();
     }
 
-    // sao băng thỉnh thoảng
-    if (!shooting && Math.random() < 0.004) {
-      shooting = { x: rand(W * 0.2, W), y: rand(0, H * 0.4), vx: -rand(6, 9), vy: rand(2, 4), life: 1 };
-    }
-    if (shooting) {
-      const s = shooting;
-      sc.globalAlpha = s.life;
-      sc.strokeStyle = "#fff3d6";
-      sc.lineWidth = 1.4;
-      sc.beginPath();
-      sc.moveTo(s.x, s.y);
-      sc.lineTo(s.x - s.vx * 8, s.y - s.vy * 8);
-      sc.stroke();
-      s.x += s.vx;
-      s.y += s.vy;
-      s.life -= 0.02;
-      if (s.life <= 0) shooting = null;
-    }
-
     sc.globalAlpha = 1;
     sc.globalCompositeOperation = "source-over";
     requestAnimationFrame(frame);
@@ -229,7 +210,7 @@
 
   // Đợi font tải xong mới ghép chữ để hạt sáng đúng hình chữ
   const fontReady = document.fonts && document.fonts.load
-    ? Promise.race([document.fonts.load('700 100px "Playfair Display"'), sleep(2500)])
+    ? Promise.race([document.fonts.load('100px "Patrick Hand"'), sleep(2500)])
     : sleep(300);
   fontReady.then(() => {
     buildDots();
@@ -241,7 +222,7 @@
      ========================================================= */
   const sparks = [];
   let fxOn = false;
-  const FX_COLORS = ["#ffd98a", "#f6bd60", "#ff9fb5", "#ffe8c2", "#e06b8b", "#fff"];
+  const FX_COLORS = ["#ffffff", "#ffd6e0", "#fff3b0", "#cde7ff", "#ff9fb5", "#b9f6ca"];
 
   function firework(x, y) {
     const n = 70;
@@ -298,30 +279,19 @@
   }
 
   /* =========================================================
-     LÁ THƯ: chữ hiện ra như mực loang
+     TRANG VỞ: chữ hiện ra như đang viết
      ========================================================= */
   const paper = $("paper");
   const bodyEl = $("letterBody");
   const skipHint = $("skipHint");
-  const segmenter = window.Intl && Intl.Segmenter ? new Intl.Segmenter("vi", { granularity: "grapheme" }) : null;
-  const firstChar = (s) => (segmenter ? segmenter.segment(s)[Symbol.iterator]().next().value.segment : Array.from(s)[0]);
 
   let words = [];
   function buildLetter() {
     bodyEl.innerHTML = "";
     words = [];
     const paras = fill(cfg.message).split(/\n\s*\n/).map((p) => p.trim().replace(/\s*\n\s*/g, " ")).filter(Boolean);
-    paras.forEach((text, pi) => {
+    paras.forEach((text) => {
       const p = document.createElement("p");
-      if (pi === 0) {
-        const fc0 = firstChar(text);
-        const dc = document.createElement("span");
-        dc.className = "dropcap";
-        dc.textContent = fc0;
-        p.appendChild(dc);
-        words.push(dc);
-        text = text.slice(fc0.length);
-      }
       text.split(" ").forEach((tok, wi) => {
         if (wi > 0) p.appendChild(document.createTextNode(" "));
         if (!tok) return;

@@ -1,5 +1,5 @@
 /* =========================================================
-   THIỆP 20/11 – BẢN "THƯ GỬI DƯỚI TRỜI SAO"
+   THIỆP 20/11 – BẢN "BẢNG ĐEN & TRANG VỞ"
    - {to}   tên đầy đủ người nhận
    - {nick} tên gọi trong lời chúc
    - {from} tên người gửi
@@ -15,14 +15,14 @@ window.CARD_CONFIG = {
   photoCaption: "Cô {nick} 💐",
 
   // Màn mở đầu
-  skyText: "20.11",                       // chữ do các hạt sáng ghép thành
+  skyText: "20.11",                       // chữ do các hạt bụi phấn ghép thành
   skySub: "Ngày Nhà giáo Việt Nam",
   hint: "Chạm vào con dấu để mở thư",
   envelopeNote: "Gửi cô {nick}",          // chữ nhỏ trên lá thư trong phong bì
 
   // Lá thư
-  date: "20 · 11 · 2026",
-  greeting: "Kính gửi cô giáo,",
+  date: "Thứ Sáu, ngày 20 tháng 11 năm 2026", // dòng đầu trang vở
+  greeting: "Kính gửi cô giáo",
   name: "{to}",
   message: `Nhân ngày Nhà giáo Việt Nam 20/11, xin gửi đến cô những lời chúc tốt đẹp và chân thành nhất.
 
@@ -35,7 +35,7 @@ Chúc cô luôn xinh đẹp, hạnh phúc, bình an, và giữ mãi nụ cười
 Chúc mừng ngày Nhà giáo Việt Nam!`,
   closing: "Thân gửi,",
   signature: "{from}",
-  finale: "Happy Teacher's Day",
+  finale: "Happy Teacher's Day!",
 
   // Tốc độ hiện chữ (ms cho mỗi từ, nhỏ hơn = nhanh hơn)
   wordSpeed: 110
