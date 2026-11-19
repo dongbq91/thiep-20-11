@@ -26,7 +26,7 @@ window.CARD_CONFIG = {
   name: "{to}",
   message: `Nhân ngày Nhà giáo Việt Nam 20/11, xin gửi đến cô những lời chúc tốt đẹp và chân thành nhất.
 
-Cảm ơn cô vì đã chọn một nghề thật đẹp — nghề gieo chữ, gieo ước mơ và thắp sáng những tâm hồn non trẻ. Mỗi bài giảng của cô không chỉ là kiến thức, mà còn là sự kiên nhẫn, là tình thương và cả những buổi tối miệt mài bên trang giáo án.
+Cảm ơn cô vì đã chọn một nghề thật đẹp — nghề gieo chữ, gieo ước mơ và thắp sáng những tâm hồn non trẻ.
 
 Chúc cô luôn dồi dào sức khỏe, giữ mãi ngọn lửa nhiệt huyết với nghề. Mong mỗi ngày đến lớp đều là một ngày vui, học trò ngoan ngoãn, chăm chỉ và luôn biết ơn những điều cô đã dành cho các em.
 

@@ -299,13 +299,14 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 26px 16px calc(110px + env(safe-area-inset-bottom));
+  padding: 14px 16px calc(110px + env(safe-area-inset-bottom));
 }
 
 .paper {
+  --k: 1; /* hệ số co chữ, script tự tính để thư vừa 1 màn hình */
   position: relative;
   width: min(100%, 460px);
-  padding: 22px 18px 30px 44px;
+  padding: calc(16px * var(--k)) 16px calc(22px * var(--k)) 42px;
   border-radius: 4px;
   color: var(--ink-text);
   background:
@@ -340,7 +341,7 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
 .date {
   text-align: center;
   font-family: var(--hand);
-  font-size: 18px;
+  font-size: calc(17px * var(--k));
   color: var(--ink);
   opacity: 0;
 }
@@ -355,13 +356,13 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
   display: flex;
   align-items: center;
   gap: 16px;
-  margin: 16px 0 18px;
+  margin: calc(10px * var(--k)) 0 calc(12px * var(--k));
 }
 .polaroid {
   position: relative;
   flex: none;
-  width: 106px;
-  padding: 7px 7px 26px;
+  width: calc(96px * var(--k));
+  padding: 6px 6px calc(22px * var(--k));
   background: #fff;
   box-shadow: 0 8px 18px rgba(30, 30, 60, .25);
   transform: rotate(-5deg);
@@ -380,7 +381,7 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
   bottom: 3px;
   text-align: center;
   font-family: var(--hand);
-  font-size: 15px;
+  font-size: calc(14px * var(--k));
   color: var(--ink);
 }
 .tape {
@@ -403,7 +404,7 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
 .head-text { flex: 1; min-width: 0; }
 .greeting {
   font-family: var(--hand);
-  font-size: 19px;
+  font-size: calc(18px * var(--k));
   color: var(--ink);
   opacity: 0;
 }
@@ -414,7 +415,7 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
   margin-top: 2px;
   font-family: var(--script);
   font-weight: 700;
-  font-size: clamp(26px, 7.4vw, 33px);
+  font-size: calc(30px * var(--k));
   line-height: 1.15;
   color: var(--red-ink);
   clip-path: inset(-20% 100% -20% -5%);
@@ -435,12 +436,12 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
 
 /* Thân thư: viết trên dòng kẻ, lùi đầu dòng */
 .letter-body {
-  background: repeating-linear-gradient(to bottom, transparent 0 31px, var(--grid-main) 31px 32px);
+  background: repeating-linear-gradient(to bottom, transparent 0 calc(32px * var(--k) - 1px), var(--grid-main) calc(32px * var(--k) - 1px) calc(32px * var(--k)));
 }
 .letter-body p {
   font-family: var(--hand);
-  font-size: 19px;
-  line-height: 32px;
+  font-size: calc(19px * var(--k));
+  line-height: calc(32px * var(--k));
   text-indent: 1.6em;
   text-align: justify;
 }
@@ -461,7 +462,7 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
   align-items: flex-end;
   justify-content: space-between;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: calc(10px * var(--k));
 }
 .sign-text {
   position: relative;
@@ -470,14 +471,14 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
 }
 .closing {
   font-family: var(--hand);
-  font-size: 18px;
+  font-size: calc(17px * var(--k));
   color: var(--ink);
   opacity: 0;
 }
 .signature {
   font-family: var(--script);
   font-weight: 700;
-  font-size: 38px;
+  font-size: calc(34px * var(--k));
   line-height: 1.2;
   color: var(--ink);
   clip-path: inset(-20% 100% -20% -5%);
@@ -505,7 +506,7 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
 /* Bó hoa vẽ bằng nét bút bi */
 .bouquet {
   flex: none;
-  width: 104px;
+  width: calc(88px * var(--k));
   height: auto;
   overflow: visible;
 }
@@ -530,8 +531,8 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
   position: absolute;
   right: 54px;
   bottom: -6px;
-  width: 98px;
-  height: 98px;
+  width: calc(90px * var(--k));
+  height: calc(90px * var(--k));
   opacity: 0;
   mix-blend-mode: multiply;
   pointer-events: none;
@@ -581,8 +582,8 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
 
 .replay {
   position: fixed;
-  right: 20px;
-  bottom: calc(20px + env(safe-area-inset-bottom));
+  right: 18px;
+  top: calc(18px + env(safe-area-inset-top));
   z-index: 55;
   width: 44px;
   height: 44px;

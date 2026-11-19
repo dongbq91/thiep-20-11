@@ -205,6 +205,7 @@
     resizeTimer = setTimeout(() => {
       resize();
       if (mode === "form") buildDots();
+      if (body.classList.contains("reading")) fitPaper();
     }, 200);
   });
 
@@ -307,6 +308,17 @@
   }
   buildLetter();
 
+  // Co chữ cho cả lá thư vừa khít 1 màn hình điện thoại (không phải cuộn)
+  function fitPaper() {
+    const avail = window.innerHeight - 24;
+    let k = 1;
+    paper.style.setProperty("--k", k);
+    while (paper.offsetHeight > avail && k > 0.7) {
+      k -= 0.02;
+      paper.style.setProperty("--k", k.toFixed(2));
+    }
+  }
+
   let skip = false;
   let runId = 0;
   const wait = (ms) => new Promise((r) => setTimeout(r, skip ? 0 : ms));
@@ -358,7 +370,6 @@
     body.classList.add("done");
     skipHint.classList.remove("show");
     celebrate();
-    setTimeout(() => follow($("finale")), 400);
   }
 
   paper.addEventListener("click", () => (skip = true));
@@ -388,6 +399,7 @@
     $("letterScene").hidden = false;
     body.classList.remove("intro", "opening", "env-away");
     body.classList.add("reading");
+    fitPaper();
     window.scrollTo(0, 0);
     await sleep(1500);
     reveal();
