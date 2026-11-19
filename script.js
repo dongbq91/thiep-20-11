@@ -335,7 +335,7 @@
     const id = ++runId;
     skip = false;
     body.classList.remove("done");
-    paper.classList.remove("show-head", "show-sign", "show-stamp");
+    paper.classList.remove("show-head", "show-sign");
     words.forEach((w) => w.classList.remove("on"));
     void paper.offsetWidth;
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -363,9 +363,6 @@
     paper.classList.add("show-sign");
     follow($("letterSign"));
     await wait(2400);
-    if (id !== runId) return;
-    paper.classList.add("show-stamp");
-    await wait(800);
     if (id !== runId) return;
     body.classList.add("done");
     skipHint.classList.remove("show");

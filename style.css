@@ -526,27 +526,6 @@ body.intro, body.opening { overflow: hidden; height: 100vh; height: 100svh; }
 }
 @keyframes fill-in { to { fill-opacity: .85; } }
 
-/* Dấu tròn đỏ đóng lên chữ ký */
-.stamp {
-  position: absolute;
-  right: 54px;
-  bottom: -6px;
-  width: calc(90px * var(--k));
-  height: calc(90px * var(--k));
-  opacity: 0;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-.stamp text { font-family: var(--ui); font-weight: 700; fill: var(--red-ink); }
-.show-stamp .stamp { animation: stamp .7s cubic-bezier(.3, 1.5, .5, 1) forwards; }
-@keyframes stamp {
-  0% { opacity: 0; transform: scale(2.4) rotate(-40deg); }
-  60% { opacity: .9; transform: scale(.94) rotate(-12deg); }
-  100% { opacity: .82; transform: scale(1) rotate(-14deg); }
-}
-.paper.show-stamp { animation: thud .35s ease .4s; }
-@keyframes thud { 40% { transform: translateY(3px) scale(.995); } }
-
 /* Chữ kết viết bằng phấn */
 .finale {
   margin-top: 34px;
